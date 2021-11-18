@@ -365,15 +365,11 @@ void orderStaff(string* user) {
 
 void adminMenuFunction() {
 
-    //need to update this
-
-
     int option1;
 
     cout << "Would you like to:\n";
     cout << "\n\t1. Update a particular menu item";
-    cout << "\n\t2. Reset full menu";
-    cout << "\n\t3. Return to Admin Menu";
+    cout << "\n\t2. Return to Admin Menu";
     cout << "\n\nSelect option: ";
     cin >> option1;
     cout << endl;
@@ -384,7 +380,6 @@ void adminMenuFunction() {
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-
 
     else if (option1 == 1) {
 
@@ -420,11 +415,6 @@ void adminMenuFunction() {
         }
 
         menuFunction();
-
-        //for (int i = 0; i < menuPriceVector.size(); i++) {
-        //    cout << "$" << menuPriceVector[i] << "    " << menuItemVector[i] << endl;
-        //}
-
 
         menuItem.close();
         menuPrice.close();
@@ -467,29 +457,10 @@ void adminMenuFunction() {
 
 
     else if (option1 == 2) {
-
-        fstream menu;
-        string newMenu;
-        bool menuLoop = true;
-        menu.open("menu.txt", ios::out);
-        cout << "Menu has been reset\n";
-        cout << "\nPlease enter new menu item and price - once finished type 'exit' : \n";
-        cin.ignore();
-        if (menu.is_open()) {
-            while (menuLoop) {
-                getline(cin, newMenu);
-                if (newMenu == "exit") {
-                    break;
-                }
-                menu << newMenu << endl;
-            }
-        }
-        menu.close();
-    }
-
-    else if (option1 == 3) {
         cout << "\nReturning to Admin Menu...\n";
+
     }
+
 
     else {
         cout << "\nIncorrect input - Returning to Admin Menu...\n";
